@@ -28,10 +28,10 @@ const Register = () => {
 
       const result = await response.json();
       console.log(result);
-      // You can handle success, store the token, and navigate to another page
+ 
     } catch (error) {
       console.error(error);
-      // You can handle errors and display appropriate messages
+    
     }
   };
 

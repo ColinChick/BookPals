@@ -13,7 +13,7 @@ const Navigations = () => {
         <li><Link to="/">Home</Link></li>
         <li><Link to="/books">Books</Link></li>
         <li><Link to="/reservations">Reservations</Link></li>
-        {/* Add conditional rendering for authentication */}
+   
         {localStorage.getItem('token') ? (
           <>
             <li><Link to="/profile">Profile</Link></li>

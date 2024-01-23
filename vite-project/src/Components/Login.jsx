@@ -6,7 +6,7 @@ const Login = ({ setToken }) => {
 
   const handleLogin = async () => {
     try {
-      // Make API call to login
+  
       const response = await fetch('/api/users/login', {
         method: 'POST',
         headers: {
@@ -20,11 +20,11 @@ const Login = ({ setToken }) => {
 
       const result = await response.json();
 
-      // Check if login was successful
+
       if (response.ok) {
         setToken(result.token);
       } else {
-        // Handle login error
+     
         console.error('Login failed:', result.message);
       }
     } catch (error) {

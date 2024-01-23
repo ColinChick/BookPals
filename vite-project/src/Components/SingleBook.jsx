@@ -4,7 +4,7 @@ const SingleBook = ({ bookId, token }) => {
   const [book, setBook] = useState(null);
 
   useEffect(() => {
-    // Fetch the details of a single book
+
     const fetchBook = async () => {
       try {
         const response = await fetch(`/api/books/${bookId}`, {
@@ -18,7 +18,7 @@ const SingleBook = ({ bookId, token }) => {
           const bookData = await response.json();
           setBook(bookData);
         } else {
-          // Handle error response
+       
           console.error('Failed to fetch book details');
         }
       } catch (error) {

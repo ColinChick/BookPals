@@ -1,38 +1,26 @@
 import React, { useState, useEffect } from 'react';
+import { fetchBooks } from '../API/books';
 
 const Books = () => {
   const [books, setBooks] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Fetch books from the server
-    fetch('/api/books', {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        // Log the data received from the server
-        console.log('Books data:', data);
-
-        // Set the retrieved books in state
+    const fetchData = async () => {
+      try {
+        const data = await fetchBooks();
         setBooks(data);
-      })
-      .catch(error => {
-        // Handle errors
+      } catch (error) {
         setError(error.message);
-      });
-  }, []); // Empty dependency array ensures the effect runs only once on mount
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div>
-      {error && <p>Error fetching books: {error}</p>}
+    
       <h2>Books</h2>
       {books.length === 0 && <p>No books available</p>}
       <ul>

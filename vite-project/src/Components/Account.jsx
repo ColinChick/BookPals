@@ -5,7 +5,7 @@ const Account = ({ token }) => {
   const [checkedOutBooks, setCheckedOutBooks] = useState([]);
 
   useEffect(() => {
-    // Check authentication and fetch user information
+
     if (token) {
       fetchUserData();
       fetchCheckedOutBooks();
@@ -14,7 +14,7 @@ const Account = ({ token }) => {
 
   const fetchUserData = async () => {
     try {
-      // Make API call to fetch user data
+   
       const response = await fetch('/api/users/me', {
         headers: {
           'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ const Account = ({ token }) => {
 
   const fetchCheckedOutBooks = async () => {
     try {
-      // Make API call to fetch checked-out books
+    
       const response = await fetch('/api/reservations', {
         headers: {
           'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ const Account = ({ token }) => {
 
   return (
     <div className="account-container">
-      {/* Render user information */}
+ 
       {user && (
         <div className="user-info">
           <h2>{user.firstname} {user.lastname}</h2>
@@ -56,7 +56,7 @@ const Account = ({ token }) => {
         </div>
       )}
 
-      {/* Render checked-out books */}
+   
       {checkedOutBooks.length > 0 ? (
         <div className="checked-out-books">
           <h3>Checked Out Books</h3>
